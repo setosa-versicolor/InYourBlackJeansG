@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>For My Wife</title>
+    <title>In Your Black Jeans</title>
     <style>
         body {
-            /* EXACT MATCH TO YOUR COVER ART EDGES */
             background-color: #060606; 
             color: #b3b3b3;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -20,7 +19,6 @@
             overflow: hidden; 
         }
 
-        /* --- THE START SCREEN --- */
         .start-screen {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -28,7 +26,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #060606; /* EXACT MATCH */
+            background-color: #060606; 
             z-index: 100; 
             transition: opacity 0.8s ease, visibility 0.8s;
         }
@@ -59,11 +57,20 @@
             transform: scale(0.95);
         }
 
+        /* --- NEW: VOLUME REMINDER STYLES --- */
+        .volume-reminder {
+            margin-top: 24px;
+            font-size: 0.85rem;
+            color: #888888;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
         .start-screen.hidden {
             opacity: 0;
             visibility: hidden;
         }
-        /* --------------------------------- */
 
         .player-container {
             max-width: 400px;
@@ -159,10 +166,11 @@
     <div id="start-screen" class="start-screen">
         <img src="B8FFC8A0-5C99-49BE-B152-6E16C414D7F2.png" alt="Cover Art" class="start-cover">
         <button id="start-btn" class="play-btn">PLAY</button>
+        <p class="volume-reminder">🔊 Turn your volume up</p>
     </div>
 
     <div class="player-container">
-        <img src="B8FFC8A0-5C99-49BE-B152-6E16C414D7F2.png" alt="Cover Art" class="cover-art" id="cover-image">
+        <img src="cover_art_soft_edge.png" alt="Cover Art" class="cover-art" id="cover-image">
         
         <audio id="audio-player" controls>
             <source src="InYourBlackJeansv2.m4a" type="audio/mp4">
