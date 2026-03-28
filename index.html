@@ -6,6 +6,8 @@
     <title>For My Wife</title>
     <style>
         body {
+            /* EXACT MATCH TO YOUR COVER ART EDGES */
+            background-color: #060606; 
             color: #b3b3b3;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
@@ -18,7 +20,7 @@
             overflow: hidden; 
         }
 
-        /* --- NEW: START SCREEN OVERLAY --- */
+        /* --- THE START SCREEN --- */
         .start-screen {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -26,22 +28,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-image: url('B8FFC8A0-5C99-49BE-B152-6E16C414D7F2.png');
-            background-size: cover;
-            background-position: center;
-            z-index: 100; /* Keeps it on top of everything else */
+            background-color: #060606; /* EXACT MATCH */
+            z-index: 100; 
             transition: opacity 0.8s ease, visibility 0.8s;
-        }
-
-        /* Darkens the background of the start screen so the button pops */
-        .start-screen::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px); /* Adds a nice glass effect if supported */
-            -webkit-backdrop-filter: blur(10px);
-            z-index: -1;
         }
 
         .start-cover {
@@ -70,22 +59,11 @@
             transform: scale(0.95);
         }
 
-        /* This class is added by JS to fade out the screen */
         .start-screen.hidden {
             opacity: 0;
             visibility: hidden;
         }
         /* --------------------------------- */
-
-        .background-blur {
-            position: fixed;
-            top: -10%; left: -10%; right: -10%; bottom: -10%; 
-            background-image: url('B8FFC8A0-5C99-49BE-B152-6E16C414D7F2.png'); 
-            background-size: cover;
-            background-position: center;
-            filter: blur(50px) brightness(0.3); 
-            z-index: -1;
-        }
 
         .player-container {
             max-width: 400px;
@@ -183,8 +161,6 @@
         <button id="start-btn" class="play-btn">PLAY</button>
     </div>
 
-    <div class="background-blur"></div>
-
     <div class="player-container">
         <img src="B8FFC8A0-5C99-49BE-B152-6E16C414D7F2.png" alt="Cover Art" class="cover-art" id="cover-image">
         
@@ -273,17 +249,13 @@
         const lyrics = document.querySelectorAll('.lyric-line');
         const coverImage = document.getElementById('cover-image');
         
-        // --- NEW START BUTTON LOGIC ---
         const startScreen = document.getElementById('start-screen');
         const startBtn = document.getElementById('start-btn');
 
         startBtn.addEventListener('click', () => {
-            // Fades out the start screen
             startScreen.classList.add('hidden');
-            // Starts the music automatically
             audio.play();
         });
-        // ------------------------------
         
         audio.addEventListener('play', () => {
             coverImage.classList.add('playing');
